@@ -1,7 +1,8 @@
+import Header from './components/Header'
 function App() {
     return (
-        <div>
-            <h2>Welcome to task manager</h2>
+        <div className='container'>
+            <Header />
         </div>
     )
 }
