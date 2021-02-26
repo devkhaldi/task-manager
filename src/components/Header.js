@@ -1,14 +1,10 @@
 const Header = () => {
     return (
-        <header style={headingStyle}>
+        <header>
             <h1>Task Manager</h1>
+            <button>Add task</button>
         </header>
     )
-}
-
-const headingStyle = {
-    color: 'red',
-    backgroundColor: 'black',
 }
 
 export default Header
