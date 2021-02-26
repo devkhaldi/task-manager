@@ -11,7 +11,7 @@ body {
 }
 .container {
     width: 30rem;
-    background: #fafafa;
+
     padding: 1rem;
     margin-top: 2rem;
     box-shadow: 0 5px 5px rgba(100, 100, 100, 0.1);
@@ -22,8 +22,8 @@ header {
     align-items: center;
 }
 header h1 {
-    font-size: 1.3rem;
     font-weight: 100;
+    font-size: 1.5rem;
 }
 header button {
     margin-left: auto;
@@ -32,4 +32,21 @@ header button {
     background: rgb(47, 142, 186);
     cursor: pointer;
     padding: 0.6rem;
+}
+
+/* Tasks */
+.tasks {
+    margin: 1rem 0;
+}
+.task {
+    padding: 0.5rem 2rem;
+    margin: 0.5rem 0;
+    background: #fcfcfc;
+}
+.task h3 {
+    font-weight: 400;
+}
+.task p {
+    color: #555;
+    font-size: 0.9rem;
 }
