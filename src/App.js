@@ -8,10 +8,14 @@ function App() {
         { id: 2, title: 'Meeting at school', date: 'Feb 6th at 2:30pm', reminder: true },
         { id: 3, title: 'Food shopping', date: 'Feb 7th at 2:30pm', reminder: false },
     ])
+
+    const onDelete = id => {
+        setTasks(tasks.filter(task => task.id !== id))
+    }
     return (
         <div className='container'>
             <Header />
-            <Tasks tasks={tasks} />
+            <Tasks tasks={tasks} onDelete={onDelete} />
         </div>
     )
 }
