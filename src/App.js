@@ -9,7 +9,9 @@ function App() {
         { id: 3, title: 'Food shopping', date: 'Feb 7th at 2:30pm', reminder: false },
     ])
 
-    const onDelete = id => setTasks(tasks.filter(task => task.id !== id))
+    const onDelete = id => {
+        if (window.confirm('Delete task ')) setTasks(tasks.filter(task => task.id !== id))
+    }
 
     const onDoubleClick = id => {
         setTasks(tasks.map(task => (task.id === id ? { ...task, reminder: !task.reminder } : task)))
