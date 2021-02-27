@@ -5,14 +5,12 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #fcfcfc;
     display: flex;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
 }
 .container {
     width: 30rem;
-
     padding: 1rem;
     margin-top: 2rem;
     box-shadow: 0 1px 1px rgba(100, 100, 100, 0.1);
@@ -42,8 +40,9 @@ header button {
 .task {
     padding: 0.5rem 2rem;
     margin: 0.5rem 0;
-    background: #fcfcfc;
+    background: #fafafa;
     position: relative;
+    cursor: pointer;
 }
 .task h4 {
     font-weight: 400;

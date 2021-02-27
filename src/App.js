@@ -9,13 +9,16 @@ function App() {
         { id: 3, title: 'Food shopping', date: 'Feb 7th at 2:30pm', reminder: false },
     ])
 
-    const onDelete = id => {
-        setTasks(tasks.filter(task => task.id !== id))
+    const onDelete = id => setTasks(tasks.filter(task => task.id !== id))
+
+    const onDoubleClick = id => {
+        setTasks(tasks.map(task => (task.id === id ? { ...task, reminder: !task.reminder } : task)))
     }
+
     return (
         <div className='container'>
             <Header />
-            <Tasks tasks={tasks} onDelete={onDelete} />
+            <Tasks tasks={tasks} onDelete={onDelete} onDoubleClick={onDoubleClick} />
         </div>
     )
 }
