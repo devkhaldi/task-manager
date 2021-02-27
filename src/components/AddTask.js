@@ -1,13 +1,20 @@
 import { useState } from 'react'
 
-const AddTask = () => {
-    const [title, setTitle] = useState('')
-    const [date, setDate] = useState('')
-
+const AddTask = ({ formTask, setFormTask }) => {
     return (
         <form>
-            <input value={title} onChange={e => setTitle(e.target.value)} type='text' placeholder='Task title' />
-            <input value={date} onChange={e => setDate(e.target.value)} type='text' placeholder='Task Date' />
+            <input
+                value={formTask.title}
+                onChange={e => setFormTask({ ...formTask, title: e.target.value })}
+                type='text'
+                placeholder='Task title'
+            />
+            <input
+                value={formTask.date}
+                onChange={e => setFormTask({ ...formTask, date: e.target.value })}
+                type='text'
+                placeholder='Task Date'
+            />
         </form>
     )
 }
