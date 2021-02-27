@@ -20,10 +20,14 @@ function App() {
     const onDoubleClick = id => {
         setTasks(tasks.map(task => (task.id === id ? { ...task, reminder: !task.reminder } : task)))
     }
+    const addTask = () => {
+        setTasks([...tasks, formTask])
+        setFormTask({ ...formTask, title: '', date: '' })
+    }
 
     return (
         <div className='container'>
-            <Header />
+            <Header addTask={addTask} />
             <AddTask formTask={formTask} setFormTask={setFormTask} />
             <Tasks tasks={tasks} onDelete={onDelete} onDoubleClick={onDoubleClick} />
         </div>

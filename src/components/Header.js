@@ -1,8 +1,8 @@
-const Header = () => {
+const Header = ({ addTask }) => {
     return (
         <header>
             <h1>Task Manager</h1>
-            <button>Add task</button>
+            <button onClick={addTask}>Add task</button>
         </header>
     )
 }
