@@ -8,7 +8,7 @@ function App() {
     const [tasks, setTasks] = useState([])
 
     // Add task form state
-    const [formTask, setFormTask] = useState({ id: tasks.length, title: '', date: '', reminder: false })
+    const [formTask, setFormTask] = useState({ title: '', date: '', reminder: false })
 
     useEffect(() => {
         axios
@@ -32,6 +32,10 @@ function App() {
     }
     const addTask = () => {
         if (formTask.title && formTask.date) {
+            axios
+                .post('http://localhost:5000/tasks', formTask)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
             setFormTask({ ...formTask, id: formTask.id + 1, title: '', date: '' })
         }
     }
