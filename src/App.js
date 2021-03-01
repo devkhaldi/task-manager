@@ -18,14 +18,20 @@ function App() {
     }, [])
 
     const onDelete = id => {
-        if (window.confirm('Delete task ')) setTasks(tasks.filter(task => task.id !== id))
+        if (window.confirm('Delete task')) {
+            axios
+                .delete(`http://localhost:5000/tasks/${id}`)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
+
+            setTasks(tasks.filter(task => task.id !== id))
+        }
     }
     const onDoubleClick = id => {
         setTasks(tasks.map(task => (task.id === id ? { ...task, reminder: !task.reminder } : task)))
     }
     const addTask = () => {
         if (formTask.title && formTask.date) {
-            setTasks([...tasks, formTask])
             setFormTask({ ...formTask, id: formTask.id + 1, title: '', date: '' })
         }
     }
