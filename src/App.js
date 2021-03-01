@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
 import AddTask from './components/AddTask'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
@@ -8,6 +9,13 @@ function App() {
 
     // Add task form state
     const [formTask, setFormTask] = useState({ id: tasks.length, title: '', date: '', reminder: false })
+
+    useEffect(() => {
+        axios
+            .get('http://localhost:5000/tasks')
+            .then(res => setTasks(res.data))
+            .catch(err => console.log(err))
+    }, [])
 
     const onDelete = id => {
         if (window.confirm('Delete task ')) setTasks(tasks.filter(task => task.id !== id))
