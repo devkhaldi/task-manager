@@ -4,11 +4,7 @@ import Header from './components/Header'
 import Tasks from './components/Tasks'
 
 function App() {
-    const [tasks, setTasks] = useState([
-        { id: 0, title: 'Doctors Appointment', date: 'Feb 5th at 2:30pm', reminder: true },
-        { id: 1, title: 'Meeting at school', date: 'Feb 6th at 2:30pm', reminder: true },
-        { id: 2, title: 'Food shopping', date: 'Feb 7th at 2:30pm', reminder: false },
-    ])
+    const [tasks, setTasks] = useState([])
 
     // Add task form state
     const [formTask, setFormTask] = useState({ id: tasks.length, title: '', date: '', reminder: false })
@@ -16,13 +12,14 @@ function App() {
     const onDelete = id => {
         if (window.confirm('Delete task ')) setTasks(tasks.filter(task => task.id !== id))
     }
-
     const onDoubleClick = id => {
         setTasks(tasks.map(task => (task.id === id ? { ...task, reminder: !task.reminder } : task)))
     }
     const addTask = () => {
-        setTasks([...tasks, formTask])
-        setFormTask({ ...formTask, title: '', date: '' })
+        if (formTask.title && formTask.date) {
+            setTasks([...tasks, formTask])
+            setFormTask({ ...formTask, id: formTask.id + 1, title: '', date: '' })
+        }
     }
 
     return (
